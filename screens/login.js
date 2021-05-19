@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import logo from '../assets/logo-green.png';
+import CustomInput from '../components/customInput';
+import ShowHideInput from '../components/ShowHideInput';
+import SubmitButton from '../components/submitButton';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,46 +23,32 @@ const Login = () => {
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.topContent}>
-
           <Image style={styles.logo} source={logo} />
           <Text style={styles.enterText}>Entrar</Text>
-          <View style={styles.input}>
-            <TextInput
-              style={styles.inputText}
-              value={email}
+          <CustomInput
               placeholder='E-mail'
-              placeholderTextColor='rgba(0, 0, 0, 0.54)'
-              keyboardType='email-address'
-              autoCorrect={false}
-              autoCapitalize='none'
-              onChangeText={(text) => setEmail(text)}
-            />
-          </View>
-          <View style={styles.input}>
-            <TextInput
-              secureTextEntry
               value={password}
-              style={styles.inputText}
+              isSecure={true}
+              keyboardType='email-address'
+              setter={setPassword}
+          />
+          <View style={styles.groupedInput}>
+            <ShowHideInput
               placeholder='Senha'
-              placeholderTextColor='rgba(0, 0, 0, 0.54)'
-              autoCorrect={false}
-              autoCapitalize='none'
-              onChangeText={(text) => setPassword(text)}
+              value={password}
+              isSecure={true}
+              setter={setPassword}
             />
+            <TouchableOpacity style={styles.forgotBtn}>
+              <Text style={styles.forgotText}>Esqueci minha senha</Text>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.forgotBtn}>
-            <Text style={styles.forgotText}>Esqueci minha senha</Text>
-          </TouchableOpacity>
         </View>
         <View style={styles.bottomContent}>
-        <TouchableOpacity onPress={handleSubmit} style={styles.submitBtn}>
-          <Text style={styles.submitBtnText}>ENTRAR</Text>
-        </TouchableOpacity>
-        <Text style={styles.orText}>ou</Text>
-        <TouchableOpacity onPress={handleAlternative} style={styles.alternativeBtn}>
-          <Text style={styles.alternativeBtnText}>CADASTRE-SE</Text>
-        </TouchableOpacity>
-      </View>
+          <SubmitButton text='ENTRAR' submitHandler={handleSubmit} />
+          <Text style={styles.orText}>ou</Text>
+          <SubmitButton text='CADASTRE-SE' submitHandler={handleAlternative} />
+        </View>
       </View>
     </View>
   );
@@ -85,7 +74,7 @@ const styles = StyleSheet.create({
   },
   topContent: {
     flex: 3,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     width: '100%',
   },
@@ -104,26 +93,29 @@ const styles = StyleSheet.create({
     fontFamily: 'NunitoRegular',
     fontSize: 34
   },
+  groupedInput: {
+    width: '100%',
+  },
   input: {
-    width: 100
+    width: '100%',
+    borderBottomWidth: 1,
+    borderBottomColor:'#rgba(38, 66, 36, 1)',
   },
   inputText: {
-
+    fontFamily: 'NunitoRegular',
+    fontSize: 16
   },
   forgotBtn: {
-
+    marginTop: 18,
+    alignSelf: 'flex-end'
   },
   forgotText: {
-
-  },
-  submitBtn: {
-
-  },
-  submitBtnText: {
-
+    fontFamily: 'NunitoRegular',
+    fontSize: 12,
+    color: '#5A9C54'
   },
   orText: {
-
+    marginVertical: 16
   },
   alternativeBtn: {
 
