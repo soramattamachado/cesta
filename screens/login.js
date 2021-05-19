@@ -18,42 +18,49 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.logo} source={logo} />
-      <Text style={styles.enterText}>Entrar</Text>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.inputText}
-          value={email}
-          placeholder='E-mail'
-          placeholderTextColor='rgba(0, 0, 0, 0.54)'
-          keyboardType='email-address'
-          autoCorrect={false}
-          autoCapitalize='none'
-          onChangeText={(text) => setEmail(text)}
-        />
+      <View style={styles.content}>
+        <View style={styles.topContent}>
+
+          <Image style={styles.logo} source={logo} />
+          <Text style={styles.enterText}>Entrar</Text>
+          <View style={styles.input}>
+            <TextInput
+              style={styles.inputText}
+              value={email}
+              placeholder='E-mail'
+              placeholderTextColor='rgba(0, 0, 0, 0.54)'
+              keyboardType='email-address'
+              autoCorrect={false}
+              autoCapitalize='none'
+              onChangeText={(text) => setEmail(text)}
+            />
+          </View>
+          <View style={styles.input}>
+            <TextInput
+              secureTextEntry
+              value={password}
+              style={styles.inputText}
+              placeholder='Senha'
+              placeholderTextColor='rgba(0, 0, 0, 0.54)'
+              autoCorrect={false}
+              autoCapitalize='none'
+              onChangeText={(text) => setPassword(text)}
+            />
+          </View>
+          <TouchableOpacity style={styles.forgotBtn}>
+            <Text style={styles.forgotText}>Esqueci minha senha</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.bottomContent}>
+        <TouchableOpacity onPress={handleSubmit} style={styles.submitBtn}>
+          <Text style={styles.submitBtnText}>ENTRAR</Text>
+        </TouchableOpacity>
+        <Text style={styles.orText}>ou</Text>
+        <TouchableOpacity onPress={handleAlternative} style={styles.alternativeBtn}>
+          <Text style={styles.alternativeBtnText}>CADASTRE-SE</Text>
+        </TouchableOpacity>
       </View>
-      <View style={styles.input}>
-        <TextInput
-          secureTextEntry
-          value={password}
-          style={styles.inputText}
-          placeholder='Senha'
-          placeholderTextColor='rgba(0, 0, 0, 0.54)'
-          autoCorrect={false}
-          autoCapitalize='none'
-          onChangeText={(text) => setPassword(text)}
-        />
       </View>
-      <TouchableOpacity style={styles.forgotBtn}>
-        <Text style={styles.forgotText}>Esqueci minha senha</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleSubmit} style={styles.submitBtn}>
-        <Text style={styles.submitBtnText}>CENTRAR</Text>
-      </TouchableOpacity>
-      <Text style={styles.orText}>ou</Text>
-      <TouchableOpacity onPress={handleAlternative} style={styles.alternativeBtn}>
-        <Text style={styles.alternativeBtnText}>CADASTRE-SE</Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -61,19 +68,44 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center',
-    alignItems: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%'
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '87.20%',
+    height: '100%',
+    left: 0,
+    right: 0,
+    margin: 'auto'
+  },
+  topContent: {
+    flex: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+  bottomContent: {
+    flex: 2,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '100%',
   },
   logo: {
-    width: 50,
-    height: 200,
+    width: 100,
+    height: 100,
     resizeMode: 'center',
   },
   enterText: {
-
+    fontFamily: 'NunitoRegular',
+    fontSize: 34
   },
   input: {
-
+    width: 100
   },
   inputText: {
 
