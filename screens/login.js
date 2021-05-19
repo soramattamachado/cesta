@@ -9,7 +9,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const handleSubmit = () => {
-    console.log('handleSubmit called!');
+    navigation.navigate("Home")
   };
 
   const handleAlternative = () => {
@@ -52,14 +52,14 @@ const Login = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.bottomContent}>
-        <TouchableOpacity onPress={handleSubmit} style={styles.submitBtn}>
-          <Text style={styles.submitBtnText}>ENTRAR</Text>
-        </TouchableOpacity>
-        <Text style={styles.orText}>ou</Text>
-        <TouchableOpacity onPress={handleAlternative} style={styles.alternativeBtn}>
-          <Text style={styles.alternativeBtnText}>CADASTRE-SE</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity onPress={handleSubmit} style={styles.submitBtn}>
+            <Text style={styles.submitBtnText}>ENTRAR</Text>
+          </TouchableOpacity>
+          <Text style={styles.orText}>ou</Text>
+          <TouchableOpacity onPress={handleAlternative} style={styles.alternativeBtn}>
+            <Text style={styles.alternativeBtnText}>CADASTRE-SE</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

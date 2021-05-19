@@ -7,7 +7,8 @@ import {
   useFonts,
   Nunito_400Regular as NunitoRegular
 } from '@expo-google-fonts/nunito';
-import MainNavigator from './navigation/mainNavigator';
+import Routes from './navigation';
+
 
 const App = () => {
   let [fontsLoaded] = useFonts({
@@ -19,7 +20,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <MainNavigator/>
+        <Routes />
       </NavigationContainer>
     </View>
   );
