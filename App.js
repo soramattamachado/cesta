@@ -5,7 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
-  Nunito_400Regular as NunitoRegular
+  Nunito_400Regular as NunitoRegular,
+  Nunito_600SemiBold as NunitoSemiBold
 } from '@expo-google-fonts/nunito';
 import Routes from './navigation';
 
