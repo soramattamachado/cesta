@@ -8,7 +8,8 @@ import {
   Nunito_400Regular as NunitoRegular,
   Nunito_600SemiBold as NunitoSemiBold
 } from '@expo-google-fonts/nunito';
-import MainNavigator from './navigation/mainNavigator';
+import Routes from './navigation';
+
 
 const App = () => {
   let [fontsLoaded] = useFonts({
@@ -20,7 +21,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <MainNavigator/>
+        <Routes />
       </NavigationContainer>
     </View>
   );

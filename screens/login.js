@@ -12,7 +12,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const handleSubmit = () => {
-    console.log('handleSubmit called!');
+    navigation.navigate("Home")
   };
 
   const handleAlternative = () => {
@@ -26,11 +26,11 @@ const Login = () => {
           <Image style={styles.logo} source={logo} />
           <Text style={styles.enterText}>Entrar</Text>
           <CustomInput
-              placeholder='E-mail'
-              value={password}
-              isSecure={true}
-              keyboardType='email-address'
-              setter={setPassword}
+            placeholder='E-mail'
+            value={password}
+            isSecure={true}
+            keyboardType='email-address'
+            setter={setPassword}
           />
           <View style={styles.groupedInput}>
             <ShowHideInput
@@ -45,9 +45,13 @@ const Login = () => {
           </View>
         </View>
         <View style={styles.bottomContent}>
-          <SubmitButton text='ENTRAR' submitHandler={handleSubmit} />
+          <TouchableOpacity onPress={handleSubmit} style={styles.submitBtn}>
+            <Text style={styles.submitBtnText}>ENTRAR</Text>
+          </TouchableOpacity>
           <Text style={styles.orText}>ou</Text>
-          <SubmitButton text='CADASTRE-SE' submitHandler={handleAlternative} />
+          <TouchableOpacity onPress={handleAlternative} style={styles.alternativeBtn}>
+            <Text style={styles.alternativeBtnText}>CADASTRE-SE</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     borderBottomWidth: 1,
-    borderBottomColor:'#rgba(38, 66, 36, 1)',
+    borderBottomColor: '#rgba(38, 66, 36, 1)',
   },
   inputText: {
     fontFamily: 'NunitoRegular',

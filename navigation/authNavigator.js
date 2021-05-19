@@ -2,11 +2,13 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
+
 import Login from '../screens/login';
 import Register from '../screens/register';
 import RecoverPassword from '../screens/recoverPassword';
 
 const Stack = createStackNavigator();
+
 
 const screenOptionStyle = {
   headerStyle: {
@@ -23,7 +25,7 @@ const AuthNavigator = () => {
       <Stack.Screen
         name='Login'
         component={Login}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name='Register'
@@ -47,10 +49,11 @@ const AuthNavigator = () => {
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center',
+    justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     height: '100%'
