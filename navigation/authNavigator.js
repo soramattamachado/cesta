@@ -6,7 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../screens/login';
 import Register from '../screens/register';
 import RecoverPassword from '../screens/recoverPassword';
-
+import Home from '../screens/home';
+import BottomNavigation from './bottomNavigation';
 const Stack = createStackNavigator();
 
 
@@ -45,6 +46,26 @@ const AuthNavigator = () => {
           title: '',
         }}
       />
+
+    </Stack.Navigator>
+  );
+};
+
+const AppNavigation = () => {
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+      <Stack.Screen
+        name='Início'
+        component={BottomNavigation}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='Dashboard'
+        component={Home}
+        options={{ headerShown: false }}
+      />
+
+
     </Stack.Navigator>
   );
 };
@@ -60,4 +81,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AuthNavigator;
+export { AuthNavigator, AppNavigation };

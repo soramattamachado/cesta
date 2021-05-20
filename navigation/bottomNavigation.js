@@ -9,7 +9,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from '../screens/home';
-
+import History from '../screens/history'
+import Profile from '../screens/profile'
 
 
 const Tab = createBottomTabNavigator();
@@ -30,9 +31,29 @@ function bottomNavigation() {
                 name="HomeStack"
                 component={Home}
                 options={{
-                    tabBarLabel: 'Home',
+                    tabBarLabel: 'Início',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="home" color={color} size={size} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="HistoryStack"
+                component={History}
+                options={{
+                    tabBarLabel: 'Histórico',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="progress-clock" color={color} size={size} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="ProfileStack"
+                component={Profile}
+                options={{
+                    tabBarLabel: 'Perfil',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="account" color={color} size={size} />
                     ),
                 }}
             />
