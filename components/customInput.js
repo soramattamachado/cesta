@@ -7,11 +7,13 @@ const CustomInput = (props) => {
     value,
     isSecure = true,
     keyboardType = 'default',
-    setter
+    setter,
+    style = []
   } = props;
+  const composedStyle = {...style, ...styles.inputContainer};
 
   return (
-    <View style={styles.inputContainer}>
+    <View style={composedStyle}>
       <View style={styles.input}>
         <TextInput
           secureTextEntry={isSecure}

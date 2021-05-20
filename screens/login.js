@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import logo from '../assets/logo-green.png';
 import CustomInput from '../components/customInput';
@@ -16,7 +16,11 @@ const Login = () => {
   };
 
   const handleAlternative = () => {
-    console.log('handleAlternative called!');
+    navigation.navigate('Register');
+  };
+
+  const handleForgotPassword = () => {
+    navigation.navigate('RecoverPassword');
   };
 
   return (
@@ -24,13 +28,14 @@ const Login = () => {
       <View style={styles.content}>
         <View style={styles.topContent}>
           <Image style={styles.logo} source={logo} />
-          <Text style={styles.enterText}>Entrar</Text>
+          <Text style={styles.titleText}>Entrar</Text>
           <CustomInput
-              placeholder='E-mail'
-              value={password}
-              isSecure={true}
-              keyboardType='email-address'
-              setter={setPassword}
+            style={styles.input}
+            placeholder='E-mail'
+            value={email}
+            isSecure={false}
+            keyboardType='email-address'
+            setter={setEmail}
           />
           <View style={styles.groupedInput}>
             <ShowHideInput
@@ -39,7 +44,7 @@ const Login = () => {
               isSecure={true}
               setter={setPassword}
             />
-            <TouchableOpacity style={styles.forgotBtn}>
+            <TouchableOpacity style={styles.forgotBtn} onPress={handleForgotPassword}>
               <Text style={styles.forgotText}>Esqueci minha senha</Text>
             </TouchableOpacity>
           </View>
@@ -47,7 +52,7 @@ const Login = () => {
         <View style={styles.bottomContent}>
           <SubmitButton text='ENTRAR' submitHandler={handleSubmit} />
           <Text style={styles.orText}>ou</Text>
-          <SubmitButton text='CADASTRE-SE' submitHandler={handleAlternative} />
+          <SubmitButton isMain={false} text='CADASTRE-SE' submitHandler={handleAlternative} />
         </View>
       </View>
     </View>
@@ -87,23 +92,15 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
+    marginTop: 60,
     resizeMode: 'center',
   },
-  enterText: {
+  titleText: {
     fontFamily: 'NunitoRegular',
     fontSize: 34
   },
   groupedInput: {
-    width: '100%',
-  },
-  input: {
-    width: '100%',
-    borderBottomWidth: 1,
-    borderBottomColor:'#rgba(38, 66, 36, 1)',
-  },
-  inputText: {
-    fontFamily: 'NunitoRegular',
-    fontSize: 16
+    width: '100%'
   },
   forgotBtn: {
     marginTop: 18,
@@ -116,12 +113,6 @@ const styles = StyleSheet.create({
   },
   orText: {
     marginVertical: 16
-  },
-  alternativeBtn: {
-
-  },
-  alternativeBtnText: {
-
   }
 });
 

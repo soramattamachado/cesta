@@ -12,7 +12,8 @@ import MainNavigator from './navigation/mainNavigator';
 
 const App = () => {
   let [fontsLoaded] = useFonts({
-    NunitoRegular
+    NunitoRegular,
+    NunitoSemiBold
   });
 
   if (!fontsLoaded) return <AppLoading />
