@@ -4,12 +4,16 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 const SubmitButton = (props) => {
   const {
     text,
+    isMain = true,
     submitHandler
   } = props;
 
+  const TouchableOpacityStyle = {...styles.submitBtn, ...(isMain ? styles.mainBtn : [])};
+  const TextStyle = {...styles.submitBtnText, ...(isMain ? styles.mainText : styles.secundaryText)};
+
   return (
-    <TouchableOpacity onPress={submitHandler} style={styles.submitBtn}>
-      <Text style={styles.submitBtnText}>{text}</Text>
+    <TouchableOpacity onPress={submitHandler} style={TouchableOpacityStyle}>
+      <Text style={TextStyle}>{text}</Text>
     </TouchableOpacity>
   );
 };
@@ -17,9 +21,11 @@ const SubmitButton = (props) => {
 const styles = StyleSheet.create({
   submitBtn: {
     width: '100%',
-    backgroundColor: '#5A9C54',
     paddingVertical: 16,
     paddingHorizontal: 6,
+  },
+  mainBtn: {
+    backgroundColor: '#5A9C54',
     borderRadius: 4,
     shadowColor: "#000",
     shadowOffset: {
@@ -32,13 +38,17 @@ const styles = StyleSheet.create({
   },
   submitBtnText: {
     fontFamily: 'NunitoSemiBold',
-    // height: 40,
     fontSize: 14,
-    color: '#FFFFFF',
     textAlign: 'center',
     top: 0,
     bottom: 0,
     margin: 'auto'
+  },
+  mainText: {
+    color: '#FFFFFF'
+  },
+  secundaryText: {
+    color: '#5A9C54'
   }
 });
 

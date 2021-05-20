@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from '../screens/login';
@@ -34,7 +33,7 @@ const AuthNavigator = () => {
         options={{
           headerShown: true,
           headerTransparent: true,
-          title: '',
+          title: ''
         }}
       />
       <Stack.Screen
@@ -43,7 +42,11 @@ const AuthNavigator = () => {
         options={{
           headerShown: true,
           headerTransparent: true,
-          title: '',
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          }
         }}
       />
 

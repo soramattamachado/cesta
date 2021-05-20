@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import CustomInput from '../components/customInput';
+import ShowHideInput from '../components/ShowHideInput';
+import SubmitButton from '../components/submitButton';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -13,52 +16,40 @@ const Register = () => {
   };
 
   const handleAlternative = () => {
-    console.log('handleAlternative called!');
+    navigation.navigate('Login');
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.signUpText}>Cadastro</Text>
-      <View style={styles.input}>
-          <TextInput
-            style={styles.inputText}
-            value={name}
+      <View style={styles.content}>
+        <View style={styles.topContent}>
+          <Text style={styles.titleText}>CADASTRO</Text>
+          <CustomInput
             placeholder='Nome completo'
-            placeholderTextColor='rgba(0, 0, 0, 0.54)'
-            onChangeText={(text) => setName(text)}
+            value={name}
+            isSecure={false}
+            setter={setName}
+          />
+          <CustomInput
+            placeholder='E-mail'
+            value={email}
+            isSecure={false}
+            keyboardType='email-address'
+            setter={setEmail}
+          />
+          <ShowHideInput
+            placeholder='Senha'
+            value={password}
+            isSecure={true}
+            setter={setPassword}
           />
         </View>
-      <View style={styles.input}>
-        <TextInput
-          style={styles.inputText}
-          value={email}
-          placeholder='E-mail'
-          placeholderTextColor='rgba(0, 0, 0, 0.54)'
-          keyboardType='email-address'
-          autoCorrect={false}
-          autoCapitalize='none'
-          onChangeText={(text) => setEmail(text)}
-        />
+        <View style={styles.bottomContent}>
+          <SubmitButton text='CADASTRAR' submitHandler={handleSubmit} />
+          <Text style={styles.orText}>ou</Text>
+          <SubmitButton isMain={false} text='ENTRE' submitHandler={handleAlternative} />
+        </View>
       </View>
-      <View style={styles.input}>
-        <TextInput
-          secureTextEntry
-          value={password}
-          style={styles.inputText}
-          placeholder='Senha'
-          placeholderTextColor='rgba(0, 0, 0, 0.54)'
-          autoCorrect={false}
-          autoCapitalize='none'
-          onChangeText={(text) => setPassword(text)}
-        />
-      </View>
-      <TouchableOpacity onPress={handleSubmit} style={styles.submitBtn}>
-        <Text style={styles.submitBtnText}>CADASTRAR</Text>
-      </TouchableOpacity>
-      <Text style={styles.orText}>ou</Text>
-      <TouchableOpacity onPress={handleAlternative} style={styles.alternativeBtn}>
-        <Text style={styles.alternativeBtnText}>ENTRE</Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -66,32 +57,40 @@ const Register = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center',
-    alignItems: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%'
   },
-  signUpText: {
-
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '87.20%',
+    height: '100%',
+    left: 0,
+    right: 0,
+    margin: 'auto'
   },
-  input: {
-
+  topContent: {
+    flex: 3,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    width: '100%',
   },
-  inputText: {
-
+  bottomContent: {
+    flex: 2,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '100%',
   },
-  submitBtn: {
-
-  },
-  submitBtnText: {
-
+  titleText: {
+    fontFamily: 'NunitoRegular',
+    fontSize: 34,
+    marginTop: 100
   },
   orText: {
-
-  },
-  alternativeBtn: {
-
-  },
-  alternativeBtnText: {
-
+    marginVertical: 16
   }
 });
 

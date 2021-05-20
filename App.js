@@ -13,7 +13,8 @@ import Routes from './navigation';
 
 const App = () => {
   let [fontsLoaded] = useFonts({
-    NunitoRegular
+    NunitoRegular,
+    NunitoSemiBold
   });
 
   if (!fontsLoaded) return <AppLoading />
