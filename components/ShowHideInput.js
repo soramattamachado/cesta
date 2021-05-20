@@ -9,13 +9,16 @@ const ShowHideInput = (props) => {
     value,
     isSecure = true,
     keyboardType = 'default',
-    setter
+    setter,
+    style = []
   } = props;
+  const composedStyle = {...style, ...styles.inputContainer};
   const [isTextSecure, setIsTextSecure] = useState(isSecure);
 
   return (
-    <View style={styles.inputContainer}>
+    <View style={composedStyle}>
       <CustomInput
+        style={style}
         placeholder={placeholder}
         value={value}
         isSecure={isTextSecure}
