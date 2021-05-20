@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import Login from '../screens/login';
 import Register from '../screens/register';
 import RecoverPassword from '../screens/recoverPassword';
-
+import Home from '../screens/home';
+import BottomNavigation from './bottomNavigation';
 const Stack = createStackNavigator();
+
 
 const screenOptionStyle = {
   headerStyle: {
@@ -22,7 +25,7 @@ const AuthNavigator = () => {
       <Stack.Screen
         name='Login'
         component={Login}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name='Register'
@@ -46,18 +49,39 @@ const AuthNavigator = () => {
           }
         }}
       />
+
     </Stack.Navigator>
   );
 };
 
+const AppNavigation = () => {
+  return (
+    <Stack.Navigator screenOptions={screenOptionStyle}>
+      <Stack.Screen
+        name='Início'
+        component={BottomNavigation}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='Dashboard'
+        component={Home}
+        options={{ headerShown: false }}
+      />
+
+
+    </Stack.Navigator>
+  );
+};
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center',
+    justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     height: '100%'
   }
 });
 
-export default AuthNavigator;
+export { AuthNavigator, AppNavigation };

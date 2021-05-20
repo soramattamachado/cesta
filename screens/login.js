@@ -12,7 +12,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const handleSubmit = () => {
-    console.log('handleSubmit called!');
+    navigation.navigate("Home")
   };
 
   const handleAlternative = () => {
