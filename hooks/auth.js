@@ -27,6 +27,7 @@ const AuthProvider = ({ children }) => {
     );
 
     const signIn = useCallback(async ({ user }) => {
+        console.log({ user })
         await AsyncStorage.multiSet([
             ["@Cris:user", JSON.stringify(user)],
         ]);
