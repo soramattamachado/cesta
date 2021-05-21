@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import CustomInput from '../components/customInput';
-import ShowHideInput from '../components/ShowHideInput';
+import ShowHideInput from '../components/showHideInput';
 import SubmitButton from '../components/submitButton';
 
 const Register = () => {
