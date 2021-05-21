@@ -1,40 +1,33 @@
 import React from "react";
 import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 import { Button, Card, } from 'react-native-paper';
-
+import HomeMock from '../mock/HomeMock'
+import CategoryProducts from '../components/CategoryProducts';
 const Home = () => {
-
-
     return (
-        <View style={styles.container}>
-            <View style={styles.topContent}>
-                <Button color="#5A9C54" icon="map-marker-radius" mode="outlined" onPress={() => console.log('Pressed')}>Inserir Localização</Button>
-            </View>
-            <View >
+        <ScrollView >
+            <View style={styles.container}>
+                <View style={styles.topContent}>
+                    <Button color="#5A9C54" icon="map-marker-radius" mode="outlined" onPress={() => console.log('Pressed')}>Inserir Localização</Button>
+                </View>
+                <View >
 
-                <View>
-                    <View style={styles.TitleContainer}>
-                        <Text style={styles.TitleText}>Alimentos</Text>
-                        <Button color="#5A9C54" mode="text" onPress={() => console.log('Pressed')}>Ver Mais</Button>
-                    </View>
-                    <ScrollView horizontal={true}>
-                        <Card style={styles.card}>
-                            <Card.Content style={styles.CardContent}>
-                                <Image style={{ width: 140, height: 100 }} source={{ uri: 'http://2.bp.blogspot.com/-PzhBiORdQ14/Vd8LLJ0LrbI/AAAAAAAAAEw/nqiXJ3sewRI/s1600/download.jpg' }}></Image>
-                                <Text style={styles.CardTitleText}>Carne do Sol do Seridó</Text>
-                            </Card.Content>
-                        </Card>
-                        <Card style={styles.card}>
-                            <Card.Content style={styles.CardContent}>
-                                <Image style={{ width: 140, height: 100 }} source={{ uri: 'http://2.bp.blogspot.com/-PzhBiORdQ14/Vd8LLJ0LrbI/AAAAAAAAAEw/nqiXJ3sewRI/s1600/download.jpg' }}></Image>
-                                <Text style={styles.CardTitleText}>Carne do Sol do Seridó</Text>
-                            </Card.Content>
-                        </Card>
-                    </ScrollView>
+                    {HomeMock.map((Category) => (
+                        <>
+                            <View key={Category.id} style={styles.TitleContainer}>
+                                <Text style={styles.TitleText}>{Category.CategoryTitle}</Text>
+                                <Button color="#5A9C54" mode="text" onPress={() => console.log('Pressed')}>Ver Mais</Button>
+                            </View>
+                            <ScrollView horizontal={true}>
+                                <CategoryProducts key={Category.Products.keys} Products={Category.Products}></CategoryProducts>
+                            </ScrollView>
+                        </>
+                    ))}
                 </View>
             </View>
+        </ScrollView >
 
-        </View>
+
 
     );
 };
@@ -45,9 +38,9 @@ const styles = StyleSheet.create({
         marginTop: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        width: '100%',
         height: '100%'
     },
+
     content: {
         flex: 1,
         justifyContent: 'center',
@@ -62,26 +55,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        marginTop: 60,
-        marginBottom: 60,
+        padding: 18,
     },
-    card: {
-        width: 340,
-        height: 130,
-        resizeMode: 'center',
-        marginRight: 20
-    },
+
     TitleText: {
         fontFamily: 'NunitoRegular',
         fontSize: 25,
-        marginLeft: 40,
-        marginRight: 145,
+        flex: 1,
     },
     CardTitleText: {
         fontFamily: 'NunitoRegular',
         fontSize: 20,
-        marginRight: 145,
-        marginLeft: 10,
+
     },
     LocalizationBtn: {
         width: '100%',
@@ -101,7 +86,7 @@ const styles = StyleSheet.create({
     },
     TitleContainer: {
         flexDirection: "row",
-        marginBottom: 20,
+        padding: 10,
         alignItems: "center"
     },
     CardContent: {
