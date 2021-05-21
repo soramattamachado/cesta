@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import logo from '../assets/logo-green.png';
 import CustomInput from '../components/customInput';
-import ShowHideInput from '../components/ShowHideInput';
+import ShowHideInput from '../components/showHideInput';
 import SubmitButton from '../components/submitButton';
 
 const Login = () => {
