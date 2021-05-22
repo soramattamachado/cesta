@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, Image, View } from 'react-native';
 import { Card, } from 'react-native-paper';
 
+import RatingStars from './ratingStars';
+
 const CategoryProductsDetails = (props) => {
     const { Products } = props;
+    const [starCount, setStarCount] = useState(4);
     return (
         <View style={{ flexDirection: "row", flexWrap: "wrap" }} >
             {Products.map((product) =>
@@ -15,6 +18,7 @@ const CategoryProductsDetails = (props) => {
                             <Text style={styles.CardValueText}> {`R$ ${product.ProductValue}`}</Text>
                         </View>
                     </Card.Content>
+                    <RatingStars customStyle={styles.start} starSize={16} count={starCount} setter={setStarCount} />
                 </Card >
             )}
         </View>
@@ -28,6 +32,11 @@ const styles = StyleSheet.create({
         height: 200,
 
         padding: 2,
+    },
+    start: {
+        width: 60,
+        marginTop: -18,
+        marginLeft: 90
     },
     content: {
         flexDirection: "column",
