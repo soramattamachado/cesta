@@ -8,8 +8,9 @@ import RecoverPassword from '../screens/recoverPassword';
 import Home from '../screens/home';
 import CategoryDetails from '../screens/categoryDetails';
 import BottomNavigation from './bottomNavigation';
-const Stack = createStackNavigator();
+import PurchaceDetail from '../screens/purchaceDetail';
 
+const Stack = createStackNavigator();
 
 const screenOptionStyle = {
   headerStyle: {
@@ -100,12 +101,22 @@ const AppNavigation = () => {
         component={BottomNavigation}
         options={{ headerShown: false }}
       />
-
-
+      <Stack.Screen
+        name='PurchaceDetail'
+        component={PurchaceDetail}
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          }
+        }}
+      />
     </Stack.Navigator>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
