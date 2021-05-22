@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
     color: 'rgba(0, 0, 0, 0.54)',
   },
   inputWrapper: {
-    // height: 200,
     width: '100%'
   },
   inputTitle: {
