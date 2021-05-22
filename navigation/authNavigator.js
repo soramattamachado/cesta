@@ -9,6 +9,7 @@ import Home from '../screens/home';
 import CategoryDetails from '../screens/categoryDetails';
 import BottomNavigation from './bottomNavigation';
 import PurchaceDetail from '../screens/purchaceDetail';
+import Rating from '../screens/rating';
 
 const Stack = createStackNavigator();
 
@@ -104,6 +105,19 @@ const AppNavigation = () => {
       <Stack.Screen
         name='PurchaceDetail'
         component={PurchaceDetail}
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          }
+        }}
+      />
+       <Stack.Screen
+        name='Rating'
+        component={Rating}
         options={{
           headerShown: true,
           headerTransparent: true,
