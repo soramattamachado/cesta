@@ -5,20 +5,24 @@ import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-paper';
 
+
+
 import CategoryProducts from '../components/CategoryProducts';
-import ProductsMock from '../mock/ProductsMock'
+import ProductsMock from '../utils/productsMock';
 
 
 
 const Home = () => {
     const navigation = useNavigation();
+
     return (
-        <ScrollView >
-            <View style={styles.container}>
-                <View style={styles.topContent}>
-                    <Button color="#5A9C54" icon="map-marker-radius" mode="outlined" onPress={() => console.log("pressed")}>Inserir Localização</Button>
-                </View>
-                <View >
+        <View style={styles.container}>
+            <View style={styles.topContent}>
+                <Button color="#5A9C54" icon="map-marker-radius" mode="text" onPress={() => console.log("pressed")}>Localização Atual</Button>
+            </View>
+            <ScrollView >
+                <View>
+
 
                     {ProductsMock.map((Category) => (
                         <>
@@ -28,14 +32,15 @@ const Home = () => {
                                     id: Category.id
                                 })}>Ver Mais</Button>
                             </View>
+
                             <ScrollView horizontal={true}>
                                 <CategoryProducts key={Category.Products.keys} Products={Category.Products}></CategoryProducts>
                             </ScrollView>
                         </>
                     ))}
                 </View>
-            </View>
-        </ScrollView >
+            </ScrollView >
+        </View>
 
 
 

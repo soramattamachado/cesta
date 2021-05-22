@@ -1,11 +1,3 @@
-/**
-     * Titulo da Section
-     * ---- Card
-     * Imagem do Card
-     * Titulo do Card 
-     */
-
-
 const ProductsMock =
     [{
         "id": 1,

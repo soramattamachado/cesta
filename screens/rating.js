@@ -33,28 +33,28 @@ const Rating = ({ navigation, route }) => {
     >
       <View style={styles.content}>
         <Text style={styles.title}>Avaliar produto</Text>
-        <PurchaceHistoryCard purchace={purchace}/>
-        <Separator/>
+        <PurchaceHistoryCard purchace={purchace} />
+        <Separator />
         <View style={styles.rating}>
           <Text style={styles.ratingTitle}>Qual a sua avaliação?</Text>
-          <Text style={styles.ratingText}>Escolha de 1 a 5 estrelas{purchace.subtotal}</Text>
-          <RatingStars customStyle={styles.start} count={starCount} setter={setStarCount}/>
+          <Text style={styles.ratingText}>Escolha de 1 a 5 estrelas</Text>
+          <RatingStars customStyle={styles.start} count={starCount} setter={setStarCount} />
         </View>
-        <Separator/>
+        <Separator />
         <View style={styles.comment}>
           <Text style={styles.commentTitle}>Comentário</Text>
           <Text style={styles.commentOptional}>(opcional)</Text>
           <Text style={styles.commentCharsUsed}>(0/300)</Text>
         </View>
-          <View style={styles.inputWrapper} >
-            <Text style={styles.inputTitle}>insira aqui sua avaliação</Text>
-            <TextInput
-              style={styles.input}
-              maxLength={300}
-              multiline={true}
-            />
-          </View>
-        <Separator/>
+        <View style={styles.inputWrapper} >
+          <Text style={styles.inputTitle}>insira aqui sua avaliação</Text>
+          <TextInput
+            style={styles.input}
+            maxLength={300}
+            multiline={true}
+          />
+        </View>
+        <Separator />
         <View style={styles.submitWrapper}>
           <SubmitButton customStyles={styles.submit} isMain={true} text='AVALIAR COMPRA' submitHandler={handleSubmit} />
         </View>
@@ -64,7 +64,7 @@ const Rating = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
-   container: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

@@ -4,7 +4,8 @@ import StarRating from 'react-native-star-rating';
 const RatingStars = (props) => {
   const {
     count = 4,
-    setter = () => {},
+    starSize,
+    setter = () => { },
     customStyle = {}
   } = props;
 
@@ -17,6 +18,7 @@ const RatingStars = (props) => {
       containerStyle={customStyle}
       disabled={false}
       maxStars={5}
+      starSize={starSize}
       rating={count}
       emptyStarColor='rgba(0, 0, 0, 0.26)'
       emptyStar='star'

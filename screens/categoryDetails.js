@@ -5,7 +5,7 @@ import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { Button } from 'react-native-paper';
 
 import CategoryProductsDetails from '../components/CategoryProductsDetails';
-import ProductsMock from '../mock/ProductsMock'
+import ProductsMock from '../utils/productsMock'
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -15,12 +15,14 @@ const CategoryDetails = ({ route, navigation }) => {
 
 
     return (
-        <ScrollView >
-            <View style={styles.container}>
-                <View style={styles.topContent}>
-                    <Button color="#5A9C54" icon="arrow-left" mode="text" onPress={() => navigation.goBack()}>Voltar</Button>
-                    <Text style={styles.TitleText}>{ProductsMock[id - 1].CategoryTitle}</Text>
-                </View>
+        <View style={styles.container}>
+            <View style={styles.topContent}>
+                <Button color="#5A9C54" icon="arrow-left" mode="text" onPress={() => navigation.goBack()}>Voltar</Button>
+
+            </View>
+            <ScrollView >
+                <Text style={styles.TitleText}>{ProductsMock[id - 1].CategoryTitle}</Text>
+
                 <View style={{ flexDirection: 'row', alignItems: 'flex-start' }} >
 
 
@@ -28,8 +30,8 @@ const CategoryDetails = ({ route, navigation }) => {
 
 
                 </View>
-            </View>
-        </ScrollView >
+            </ScrollView >
+        </View>
 
 
 
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
 
     TitleText: {
         fontFamily: 'NunitoRegular',
-        marginLeft: 15,
+        marginLeft: 30,
         fontSize: 20,
         flex: 1,
     },
