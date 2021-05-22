@@ -26,9 +26,6 @@ const PurchaceHistoryCard = (props) => {
 
 const styles = StyleSheet.create({
   purchase: {
-    maxWidth: '100%',
-    minWidth: '100%',
-    width: '100%',
     position: 'relative',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',

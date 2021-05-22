@@ -11,8 +11,7 @@ const PurchaceDetail = ({ navigation, route }) => {
   const purchace = route.params;
 
   const handleSubmit = () => {
-    console.log('submited!');
-    // navigation.navigate("BottomStack");
+    navigation.navigate('Rating', purchace);
   };
 
   return (
@@ -49,7 +48,7 @@ const PurchaceDetail = ({ navigation, route }) => {
           <Text style={styles.dataTextNormal}>{purchace.deliverAddress}</Text>
         </View>
         <Separator/>
-        <Text style={styles.avaliationTitle}>O que achou da compra?</Text>
+        <Text style={styles.ratingTitle}>O que achou da compra?</Text>
         <SubmitButton customStyles={styles.submit} isMain={true} text='AVALIAR COMPRA' submitHandler={handleSubmit} />
       </View>
     </View>
@@ -72,6 +71,7 @@ const styles = StyleSheet.create({
     height: '100%',
     left: 0,
     right: 0,
+    marginTop: 20,
     margin: 'auto'
   },
   title: {
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   deliver: {
     fontFamily: 'NunitoRegular',
   },
-  avaliationTitle: {
+  ratingTitle: {
     fontFamily: 'NunitoSemiBold',
     fontSize: 20
   },
