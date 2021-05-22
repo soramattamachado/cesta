@@ -6,7 +6,7 @@ import CustomInput from '../components/customInput';
 const ShowHideInput = (props) => {
   const {
     placeholder,
-    value,
+    value = '',
     isSecure = true,
     keyboardType = 'default',
     setter,

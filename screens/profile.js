@@ -1,11 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Avatar } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 import Images from '../utils/images';
 import MenuItemButton from '../components/menuItemButton';
 import Separator from '../components/separator';
 
 const Profile = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -13,7 +16,7 @@ const Profile = () => {
           <Avatar.Image size={48} style={styles.userAvatar} source={Images.default_avatar}/>
           <View style={styles.UserData}>
             <Text style={styles.userName}>Jucélia Santos</Text>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={() => navigation.navigate('UserData')}>
               <Text style={styles.userDataLink}>Meus dados</Text>
             </TouchableOpacity>
           </View>
