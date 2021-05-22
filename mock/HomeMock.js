@@ -13,7 +13,8 @@ const HomeMock =
         "Products": [{
             "id": 1,
             "ProductImage": "http://2.bp.blogspot.com/-PzhBiORdQ14/Vd8LLJ0LrbI/AAAAAAAAAEw/nqiXJ3sewRI/s1600/download.jpg",
-            "ProductTitle": "Carne de Sol do Seridó"
+            "ProductTitle": "Carne de Sol do Seridó",
+            "ProductValue": "24,00"
         },
         {
             "id": 2,

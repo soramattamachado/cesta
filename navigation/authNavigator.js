@@ -6,6 +6,7 @@ import Login from '../screens/login';
 import Register from '../screens/register';
 import RecoverPassword from '../screens/recoverPassword';
 import Home from '../screens/home';
+import CategoryDetails from '../screens/CategoryDetails';
 import BottomNavigation from './bottomNavigation';
 const Stack = createStackNavigator();
 
@@ -58,13 +59,45 @@ const AppNavigation = () => {
   return (
     <Stack.Navigator screenOptions={screenOptionStyle}>
       <Stack.Screen
-        name='Início'
-        component={BottomNavigation}
+        name='Login'
+        component={Login}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name='Dashboard'
+        name='Register'
+        component={Register}
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          title: ''
+        }}
+      />
+      <Stack.Screen
+        name='RecoverPassword'
+        component={RecoverPassword}
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          }
+        }}
+      />
+      <Stack.Screen
+        name='DashboardStack'
         component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='CategoryDetailsStack'
+        component={CategoryDetails}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='BottomStack'
+        component={BottomNavigation}
         options={{ headerShown: false }}
       />
 

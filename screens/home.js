@@ -1,14 +1,20 @@
 import React from "react";
+
 import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
-import { Button, Card, } from 'react-native-paper';
-import HomeMock from '../mock/HomeMock'
+
+import { Button } from 'react-native-paper';
+
 import CategoryProducts from '../components/CategoryProducts';
+import HomeMock from '../mock/HomeMock'
+
+import { useNavigation } from '@react-navigation/native';
 const Home = () => {
+    const navigation = useNavigation();
     return (
         <ScrollView >
             <View style={styles.container}>
                 <View style={styles.topContent}>
-                    <Button color="#5A9C54" icon="map-marker-radius" mode="outlined" onPress={() => console.log('Pressed')}>Inserir Localização</Button>
+                    <Button color="#5A9C54" icon="map-marker-radius" mode="outlined" onPress={() => console.log("pressed")}>Inserir Localização</Button>
                 </View>
                 <View >
 
@@ -16,7 +22,7 @@ const Home = () => {
                         <>
                             <View key={Category.id} style={styles.TitleContainer}>
                                 <Text style={styles.TitleText}>{Category.CategoryTitle}</Text>
-                                <Button color="#5A9C54" mode="text" onPress={() => console.log('Pressed')}>Ver Mais</Button>
+                                <Button color="#5A9C54" mode="text" onPress={() => navigation.navigate("CategoryDetailsStack")}>Ver Mais</Button>
                             </View>
                             <ScrollView horizontal={true}>
                                 <CategoryProducts key={Category.Products.keys} Products={Category.Products}></CategoryProducts>
@@ -60,14 +66,10 @@ const styles = StyleSheet.create({
 
     TitleText: {
         fontFamily: 'NunitoRegular',
-        fontSize: 25,
+        fontSize: 20,
         flex: 1,
     },
-    CardTitleText: {
-        fontFamily: 'NunitoRegular',
-        fontSize: 20,
 
-    },
     LocalizationBtn: {
         width: '100%',
         backgroundColor: '#5A9C54',
