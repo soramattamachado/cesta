@@ -12,7 +12,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const handleSubmit = () => {
-    navigation.navigate("BottomStack")
+    navigation.navigate('BottomStack');
   };
 
   const handleAlternative = () => {

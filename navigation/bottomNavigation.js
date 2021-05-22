@@ -1,27 +1,18 @@
 import React from 'react'
 
 import 'react-native-gesture-handler';
-
-
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from '../screens/home';
 import History from '../screens/history'
 import Profile from '../screens/profile'
 
-
 const Tab = createBottomTabNavigator();
-
-
-
-
 
 function bottomNavigation() {
     return (
-
         <Tab.Navigator
             initialRouteName="HomeStack"
             tabBarOptions={{
@@ -58,7 +49,6 @@ function bottomNavigation() {
                 }}
             />
         </Tab.Navigator>
-
     );
 }
 
