@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
     CardTitleText: {
         fontFamily: 'NunitoRegular',
-        fontSize: 20,
+        fontSize: 18,
         marginRight: 145,
         marginLeft: 10,
     },
