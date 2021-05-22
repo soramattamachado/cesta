@@ -6,7 +6,7 @@ import Login from '../screens/login';
 import Register from '../screens/register';
 import RecoverPassword from '../screens/recoverPassword';
 import Home from '../screens/home';
-import CategoryDetails from '../screens/CategoryDetails';
+import CategoryDetails from '../screens/categoryDetails';
 import BottomNavigation from './bottomNavigation';
 const Stack = createStackNavigator();
 

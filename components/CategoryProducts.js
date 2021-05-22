@@ -19,10 +19,10 @@ const CategoryProducts = (props) => {
 }
 const styles = StyleSheet.create({
     card: {
-        width: 340,
+        width: 300,
         height: 130,
         resizeMode: 'center',
-        marginRight: 20,
+        marginRight: 15,
         padding: 2,
     },
 

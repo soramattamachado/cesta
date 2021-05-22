@@ -1,13 +1,15 @@
 import React from "react";
 
-import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-paper';
 
 import CategoryProducts from '../components/CategoryProducts';
-import HomeMock from '../mock/HomeMock'
+import ProductsMock from '../mock/ProductsMock'
 
-import { useNavigation } from '@react-navigation/native';
+
+
 const Home = () => {
     const navigation = useNavigation();
     return (
@@ -18,11 +20,13 @@ const Home = () => {
                 </View>
                 <View >
 
-                    {HomeMock.map((Category) => (
+                    {ProductsMock.map((Category) => (
                         <>
-                            <View key={Category.id} style={styles.TitleContainer}>
-                                <Text style={styles.TitleText}>{Category.CategoryTitle}</Text>
-                                <Button color="#5A9C54" mode="text" onPress={() => navigation.navigate("CategoryDetailsStack")}>Ver Mais</Button>
+                            <View style={styles.TitleContainer}>
+                                <Text key={Category.id} style={styles.TitleText}>{Category.CategoryTitle}</Text>
+                                <Button color="#5A9C54" mode="text" onPress={() => navigation.navigate("CategoryDetailsStack", {
+                                    id: Category.id
+                                })}>Ver Mais</Button>
                             </View>
                             <ScrollView horizontal={true}>
                                 <CategoryProducts key={Category.Products.keys} Products={Category.Products}></CategoryProducts>
