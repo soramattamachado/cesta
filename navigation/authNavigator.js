@@ -10,6 +10,8 @@ import CategoryDetails from '../screens/categoryDetails';
 import BottomNavigation from './bottomNavigation';
 import PurchaceDetail from '../screens/purchaceDetail';
 import Rating from '../screens/rating';
+import UserData from '../screens/userData';
+import EditUserData from '../screens/editUserData';
 
 const Stack = createStackNavigator();
 
@@ -118,6 +120,32 @@ const AppNavigation = () => {
        <Stack.Screen
         name='Rating'
         component={Rating}
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          }
+        }}
+      />
+      <Stack.Screen
+        name='UserData'
+        component={UserData}
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          }
+        }}
+      />
+      <Stack.Screen
+        name='EditUserData'
+        component={EditUserData}
         options={{
           headerShown: true,
           headerTransparent: true,
