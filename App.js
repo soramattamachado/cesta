@@ -6,7 +6,8 @@ import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Nunito_400Regular as NunitoRegular,
-  Nunito_600SemiBold as NunitoSemiBold
+  Nunito_600SemiBold as NunitoSemiBold,
+  Nunito_700Bold as NunitoBold
 } from '@expo-google-fonts/nunito';
 import Routes from './navigation';
 
@@ -14,7 +15,8 @@ import Routes from './navigation';
 const App = () => {
   let [fontsLoaded] = useFonts({
     NunitoRegular,
-    NunitoSemiBold
+    NunitoSemiBold,
+    NunitoBold
   });
 
   if (!fontsLoaded) return <AppLoading />

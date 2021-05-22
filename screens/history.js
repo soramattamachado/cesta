@@ -1,23 +1,25 @@
 import React from "react";
-import { Image, StyleSheet, View, Text } from 'react-native';
-import Images from '../utils/images';
+import { Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import PurchasesMock from '../utils/purchacesMock';
 import PurchaceHistoryCard from '../components/purchaceHistoryCard';
+import Separator from '../components/separator';
 
 const History = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.title}>Histórico de compras</Text>
-        <View style={styles.purchacesContainer}>
           {PurchasesMock.map((purchace, index) => (
-            <PurchaceHistoryCard
-              key={index}
-              purchace={purchace}
-              hasSeparator={(index < PurchasesMock.length - 1)}
-            />
+            <View key={index} style={styles.purchacesContainer}>
+              <TouchableOpacity onPress={() => navigation.navigate('PurchaceDetail', purchace)}>
+                <PurchaceHistoryCard purchace={purchace}/>
+              </TouchableOpacity>
+              {(index < PurchasesMock.length - 1) && <Separator/>}
+            </View>
           ))}
-        </View>
       </View>
     </View>
   );
@@ -48,8 +50,8 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   purchacesContainer: {
-    flex: 1,
     justifyContent: 'flex-start',
+    alignContent: 'flex-start',
     alignItems: 'flex-start',
     width: '100%'
   }

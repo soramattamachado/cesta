@@ -20,25 +20,22 @@ const PurchaceHistoryCard = (props) => {
           <Text style={styles.price}>{purchace.totalPrice.toFixed(2)}</Text>
         </View>
       </View>
-      {hasSeparator &&
-        <View style={styles.separator}></View>
-      }
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   purchase: {
-    maxWidth: '100%',
-    minWidth: '100%',
-    width: '100%',
     position: 'relative',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     marginBottom: 20
   },
   date: {
-    marginBottom: 10
+    marginBottom: 10,
+    fontFamily: 'NunitoBold',
+    fontSize: 14,
+    color: 'rgba(90, 156, 84, 0.5)'
   },
   content: {
     flexDirection: 'row',
@@ -57,6 +54,8 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     resizeMode: 'cover',
+    borderWidth: 1,
+    borderRadius: 6
   },
   dataContainer: {
     flex: 3,
@@ -66,17 +65,17 @@ const styles = StyleSheet.create({
     alignItems: 'stretch'
   },
   title: {
+    fontFamily: 'NunitoRegular',
+    fontSize: 16,
+    color: 'rgba(0, 0, 0, 0.87)',
     maxWidth: '100%',
     width: '100%'
   },
   price: {
+    fontFamily: 'NunitoRegular',
+    fontSize: 16,
+    color: 'rgba(0, 0, 0, 0.87)',
     alignSelf: 'flex-end'
-  },
-  separator: {
-    width: '100%',
-    marginTop: 25,
-    borderBottomColor: 'rgba(90, 156, 84, 0.5)',
-    borderBottomWidth: 1
   }
 });
 

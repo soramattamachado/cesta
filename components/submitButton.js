@@ -5,10 +5,11 @@ const SubmitButton = (props) => {
   const {
     text,
     isMain = true,
-    submitHandler
+    submitHandler,
+    customStyles
   } = props;
 
-  const TouchableOpacityStyle = {...styles.submitBtn, ...(isMain ? styles.mainBtn : [])};
+  const TouchableOpacityStyle = {...customStyles, ...styles.submitBtn, ...(isMain ? styles.mainBtn : [])};
   const TextStyle = {...styles.submitBtnText, ...(isMain ? styles.mainText : styles.secundaryText)};
 
   return (
