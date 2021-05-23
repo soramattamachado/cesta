@@ -2,14 +2,21 @@
   "name": "cesta",
   "displayName": "cesta",
   "expo": {
-    "name": "cesta",
+    "name": "Cesta",
     "slug": "cesta",
+    "icon": "./assets/Icon.png",
+    "splash": {
+      "image": "./assets/Logo.png",
+      "backgroundColor": "#5A9C54"
+    },
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
     "android": {
       "package": "com.diegocrodrigues.cesta"
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/soramattamachado/cesta"
   }
 }
