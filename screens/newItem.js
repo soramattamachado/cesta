@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import {
-  Image,
+
   KeyboardAvoidingView,
-  ScrollView,
+
   StyleSheet,
   View,
   Text,
   TextInput,
-  TouchableOpacity
+
 } from 'react-native';
-import Images from '../utils/images';
-import PaymenttTypes from '../utils/paymentTypes';
-import PurchasesMock from '../utils/purchacesMock';
-import PurchaceHistoryCard from '../components/purchaceHistoryCard';
-import Separator from '../components/separator';
+import CustomInput from '../components/customInput';
 import SubmitButton from '../components/submitButton';
 
-const NewItem = () => {
+import { Button } from 'react-native-paper';
+const NewItem = ({ route, navigation }) => {
+  const [name, setName] = useState('');
+  const [category, setCategory] = useState('');
+  const [value, setvalue] = useState('');
+  const [adress, setAdress] = useState('');
+
   const handleSubmit = () => {
     console.log('submited!');
   };
@@ -27,28 +29,47 @@ const NewItem = () => {
       keyboardVerticalOffset='250'
       style={styles.container}
     >
+      <View style={styles.topContent}>
+        <Button color="#5A9C54" icon="arrow-left" mode="text" onPress={() => navigation.goBack()}>Voltar</Button>
+      </View>
       <View style={styles.content}>
         <Text style={styles.title}>Novo item</Text>
         <View style={styles.addPicture}>
           <Text style={styles.addPictureText}>Adicionar foto</Text>
         </View>
-        <Separator/>
-        <View style={styles.comment}>
-          <Text style={styles.commentTitle}>Comentário</Text>
-          <Text style={styles.commentOptional}>(opcional)</Text>
-          <Text style={styles.commentCharsUsed}>(0/300)</Text>
+        <CustomInput
+          style={{ flex: 1 }}
+          placeholder='Nome do produto ou serviço'
+          value={name}
+          isSecure={false}
+          setter={setName}
+        />
+        <CustomInput
+          style={{ flex: 1 }}
+          placeholder='Categoria'
+          value={category}
+          isSecure={false}
+          setter={setCategory}
+        />
+        <View style={styles.inputWrapper} >
+          <Text style={styles.inputTitle}>Descrição</Text>
+          <TextInput
+            style={styles.input}
+            maxLength={300}
+            multiline={true}
+          />
         </View>
-          <View style={styles.inputWrapper} >
-            <Text style={styles.inputTitle}>insira aqui sua avaliação</Text>
-            <TextInput
-              style={styles.input}
-              maxLength={300}
-              multiline={true}
-            />
-          </View>
-        <Separator/>
+        <CustomInput
+          style={{ flex: 1 }}
+          placeholder='Valor'
+          value={value}
+          isSecure={false}
+          keyboardType='numeric'
+          setter={setvalue}
+        />
+        <Button style={{ width: 360, marginBottom: 20, marginTop: -25 }} color="#5A9C54" icon="map-marker-radius" mode="outlined" >Local de Retirada do Produto</Button>
         <View style={styles.submitWrapper}>
-          <SubmitButton customStyles={styles.submit} isMain={true} text='AVALIAR COMPRA' submitHandler={handleSubmit} />
+          <SubmitButton customStyles={styles.submit} isMain={true} text='POSTAR NOVO ITEM' submitHandler={handleSubmit} />
         </View>
       </View>
     </KeyboardAvoidingView>
@@ -56,23 +77,27 @@ const NewItem = () => {
 };
 
 const styles = StyleSheet.create({
-   container: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%'
   },
+  topContent: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    width: '100%',
+    padding: 18,
+    marginBottom: -120
+  },
   content: {
     flex: 1,
-    position: 'relative',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'flex-start',
     width: '87.20%',
-    height: '100%',
     left: 0,
     right: 0,
-    marginTop: 20,
-    margin: 'auto'
+
   },
   title: {
     fontFamily: 'NunitoRegular',
@@ -81,75 +106,29 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   addPicture: {
-
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    backgroundColor: '#616161',
+    marginBottom: 40
   },
   addPictureText: {
     fontFamily: 'NunitoRegular',
     fontSize: 16,
     color: '#FFFFFF'
   },
-
-
-
-
-
-  rating: {
-    justifyContent: 'space-between'
-  },
-  ratingTitle: {
-    fontFamily: 'NunitoSemiBold',
-    fontSize: 20,
-    color: 'rgba(0, 0, 0, 0.87)'
-  },
-  ratingText: {
-    fontFamily: 'NunitoRegular',
-    fontSize: 16,
-    color: 'rgba(0, 0, 0, 0.54)',
-    marginTop: 10,
-    marginBottom: 10
-  },
-  comment: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  commentTitle: {
-    fontFamily: 'NunitoSemiBold',
-    fontSize: 20,
-    color: 'rgba(0, 0, 0, 0.87)'
-  },
-  commentOptional: {
-    fontFamily: 'NunitoRegular',
-    fontSize: 16,
-    color: 'rgba(0, 0, 0, 0.54)',
-    marginLeft: 6
-  },
-  commentCharsUsed: {
-    position: 'absolute',
-    right: 0,
-    fontFamily: 'NunitoRegular',
-    fontSize: 16,
-    color: 'rgba(0, 0, 0, 0.54)',
-  },
   inputWrapper: {
-    width: '100%'
+    flex: 1,
+    width: '100%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#rgba(38, 66, 36, 1)',
+    marginBottom: 40
   },
   inputTitle: {
     fontFamily: 'NunitoRegular',
-    fontSize: 16,
-    color: 'rgba(0, 0, 0, 0.54)',
-    padding: 0,
-    marginTop: 20,
-    marginBottom: 0
-  },
-  input: {
-    fontFamily: 'NunitoRegular',
-    fontSize: 16,
-    color: 'rgba(0, 0, 0, 0.87)',
-    height: 70,
-    textAlignVertical: 'top',
-    paddingVertical: 0
+    fontSize: 12,
+    color: 'rgba(0, 0, 0, 0.54)'
   },
   submitWrapper: {
     flex: 1,
@@ -158,7 +137,8 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   submit: {
-    bottom: 60
+    width: '100%',
+    bottom: 30
   }
 });
 

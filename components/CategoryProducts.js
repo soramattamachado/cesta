@@ -26,7 +26,7 @@ const CategoryProducts = (props) => {
                             <Image style={{ width: 140, height: 100 }} source={{ uri: `${product.ProductImage}` }}></Image>
                             <Text style={styles.CardTitleText}>{product.ProductTitle}</Text>
                         </Card.Content>
-                        <RatingStars customStyle={styles.start} starSize={20} count={starCount} setter={setStarCount} />
+                        <RatingStars customStyle={styles.start} disabled={true} starSize={18} count={starCount} setter={setStarCount} />
                     </Card >
                 </TouchableOpacity>
             )}

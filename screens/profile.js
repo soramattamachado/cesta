@@ -13,7 +13,7 @@ const Profile = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.user}>
-          <Avatar.Image size={48} style={styles.userAvatar} source={Images.default_avatar}/>
+          <Avatar.Image size={48} style={styles.userAvatar} source={Images.default_avatar} />
           <View style={styles.UserData}>
             <Text style={styles.userName}>Jucélia Santos</Text>
             <TouchableOpacity onPress={() => navigation.navigate('UserData')}>
@@ -23,11 +23,11 @@ const Profile = () => {
         </View>
       </View>
       <View style={styles.content}>
-        <MenuItemButton text='Pontos de fidelidade' link={() => navigation.navigate('FidelityPoints')} customStyles={styles.linkdBtn}/>
-        <Separator customStyles={styles.separator}/>
-        <MenuItemButton text='Sou vendedor(a)' link={() => navigation.navigate('Seller')} customStyles={styles.linkdBtn}/>
-        <Separator customStyles={styles.separator}/>
-        <MenuItemButton text='Sou entregador(a)' link={() => navigation.navigate('FidelityPoints')} customStyles={styles.linkdBtn}/>
+        <MenuItemButton text='Pontos de fidelidade' link={() => navigation.navigate('FidelityPoints')} customStyles={styles.linkdBtn} />
+        <Separator customStyles={styles.separator} />
+        <MenuItemButton text='Sou vendedor(a)' link={() => navigation.navigate('Seller')} customStyles={styles.linkdBtn} />
+        <Separator customStyles={styles.separator} />
+        <MenuItemButton text='Sou entregador(a)' link={() => navigation.navigate('DeliveryProfileStack')} customStyles={styles.linkdBtn} />
       </View>
     </View>
   );
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     width: 60,
     borderRadius: 40,
     justifyContent: 'center',
-    alignItems:'center',
+    alignItems: 'center',
     backgroundColor: '#AAAAAA'
   },
   UserData: {

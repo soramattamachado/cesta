@@ -27,7 +27,7 @@ const CategoryProductsDetails = (props) => {
                                 <Text style={styles.CardValueText}> {`R$ ${product.ProductValue}`}</Text>
                             </View>
                         </Card.Content>
-                        <RatingStars customStyle={styles.start} starSize={16} count={starCount} setter={setStarCount} />
+                        <RatingStars customStyle={styles.start} disabled={true} starSize={16} count={starCount} setter={setStarCount} />
                     </Card >
                 </TouchableOpacity>
             )}

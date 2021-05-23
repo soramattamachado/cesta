@@ -18,6 +18,8 @@ import FidelityPoints from '../screens/fidelityPoints';
 import Seller from '../screens/seller';
 import NewItem from '../screens/newItem';
 
+import { DeliveryProfileScreen, DeliveryRegisterScreen } from '../screens'
+
 const Stack = createStackNavigator();
 
 const screenOptionStyle = {
@@ -86,13 +88,9 @@ const AppNavigation = () => {
         name='PurchaceDetail'
         component={PurchaceDetail}
         options={{
-          headerShown: true,
+          headerShown: false,
           headerTransparent: true,
           headerTintColor: '#5A9C54',
-          title: 'VOLTAR',
-          headerStyle: {
-            height: 160
-          }
         }}
       />
       <Stack.Screen
@@ -151,33 +149,38 @@ const AppNavigation = () => {
         name='Seller'
         component={Seller}
         options={({ navigation }) => ({
-          headerShown: true,
+          headerShown: false,
           headerTransparent: true,
           headerTintColor: '#5A9C54',
-          title: 'VOLTAR',
-          headerStyle: {
-            height: 160
-          },
-          headerRight: () => (
-            <SubmitButton
-              text={'NOVO ITEM'}
-              submitHandler={() => navigation.navigate('NewItem')}
-              customStyles={{ marginRight: 40, paddingHorizontal: 16 }}
-            />
-          ),
         })}
       />
+      <Stack.Screen
+        name='DeliveryProfileStack'
+        component={DeliveryProfileScreen}
+        options={({ navigation }) => ({
+          headerShown: false,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+        })}
+      />
+      <Stack.Screen
+        name='DeliveryRegisterStack'
+        component={DeliveryRegisterScreen}
+        options={({ navigation }) => ({
+          headerShown: false,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+        })}
+      />
+
+
       <Stack.Screen
         name='NewItem'
         component={NewItem}
         options={{
-          headerShown: true,
+          headerShown: false,
           headerTransparent: true,
           headerTintColor: '#5A9C54',
-          title: 'VOLTAR',
-          headerStyle: {
-            height: 160
-          }
         }}
       />
       <Stack.Screen

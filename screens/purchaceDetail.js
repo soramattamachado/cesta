@@ -2,10 +2,12 @@ import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import Images from '../utils/images';
 import PaymenttTypes from '../utils/paymentTypes';
-import PurchasesMock from '../utils/purchacesMock';
+
 import PurchaceHistoryCard from '../components/purchaceHistoryCard';
 import Separator from '../components/separator';
 import SubmitButton from '../components/submitButton';
+
+import { Button } from 'react-native-paper';
 
 const PurchaceDetail = ({ navigation, route }) => {
   const purchace = route.params;
@@ -16,10 +18,13 @@ const PurchaceDetail = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.topContent}>
+        <Button color="#5A9C54" icon="arrow-left" mode="text" onPress={() => navigation.goBack()}>Voltar</Button>
+      </View>
       <View style={styles.content}>
         <Text style={styles.title}>Detalhes da compra</Text>
-        <PurchaceHistoryCard purchace={purchace}/>
-        <Separator/>
+        <PurchaceHistoryCard purchace={purchace} />
+        <Separator />
         <View style={styles.data}>
           <Text style={styles.dataTextSoft}>Subtotal:</Text>
           <Text style={styles.dataTextSoft}>R${purchace.subtotal}</Text>
@@ -32,7 +37,7 @@ const PurchaceDetail = ({ navigation, route }) => {
           <Text style={styles.dataTextBold}>Valor total:</Text>
           <Text style={styles.dataTextBold}>R${purchace.totalPrice}</Text>
         </View>
-        <Separator/>
+        <Separator />
         <View style={styles.payment}>
           <Image style={styles.paymentType} source={Images[purchace.paymentType]} />
           <Text style={styles.dataTextSoft}>
@@ -42,12 +47,12 @@ const PurchaceDetail = ({ navigation, route }) => {
             }
           </Text>
         </View>
-        <Separator/>
+        <Separator />
         <View style={styles.deliver}>
           <Text style={styles.dataTextSoft}>Local de entrega:</Text>
           <Text style={styles.dataTextNormal}>{purchace.deliverAddress}</Text>
         </View>
-        <Separator/>
+        <Separator />
         <Text style={styles.ratingTitle}>O que achou da compra?</Text>
         <SubmitButton customStyles={styles.submit} isMain={true} text='AVALIAR COMPRA' submitHandler={handleSubmit} />
       </View>
@@ -56,12 +61,18 @@ const PurchaceDetail = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
-   container: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     height: '100%'
+  },
+  topContent: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    width: '100%',
+    padding: 18,
   },
   content: {
     flex: 1,
@@ -71,7 +82,7 @@ const styles = StyleSheet.create({
     height: '100%',
     left: 0,
     right: 0,
-    marginTop: 20,
+    marginTop: -120,
     margin: 'auto'
   },
   title: {

@@ -4,14 +4,17 @@ import RatingStars from '../components/ratingStars';
 
 const SellerItem = (props) => {
   const {
-    item
+    item,
+    customStyle = {}
   } = props;
 
+  const containerStyle = { ...styles.container, ...customStyle };
+
   return (
-    <View style={styles.container}>
+    <View style={containerStyle}>
       <Text style={styles.title}>{item.title}</Text>
       <View style={styles.content}>
-        <RatingStars count={item.rating} disabled={true} customStyle={styles.stars} size={16}/>
+        <RatingStars count={item.rating} disabled={true} customStyle={styles.stars} starSize={16} />
         <Text style={styles.price}>RS{item.price.toFixed(2)}</Text>
       </View>
     </View>
@@ -22,7 +25,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: 86,
-    margin: 10,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
