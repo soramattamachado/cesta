@@ -1,10 +1,20 @@
-import React from "react";
-import { StyleSheet, View, Text, Image } from 'react-native';
+import React, { useState, useRef } from "react";
+import { StyleSheet, View, Text, Picker } from 'react-native';
+import ModalSelector from 'react-native-modal-selector'
+
 
 
 import { Button } from 'react-native-paper';
 
+
 const DeliveryRegister = ({ route, navigation }) => {
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    let index = 0;
+    const data = [
+        { key: index++, section: true, label: 'Carro / Moto' },
+        { key: index++, label: 'Bicicleta' },
+        { key: index++, label: 'Entrega a pé' },
+    ];
     return (
         <View style={styles.container}>
             <View style={styles.topContent}>
@@ -13,12 +23,16 @@ const DeliveryRegister = ({ route, navigation }) => {
             <View style={styles.TitleContainer} >
                 <Text style={styles.title}>Cadastro de entregador(a)</Text>
             </View>
-
             <View style={styles.content}>
-                <Text style={{ justifyContent: "center", marginLeft: 80, alignItems: "baseline", padding: 4 }}>Você ainda não se cadastrou como entregador(a)... Deseja se cadastrar ?</Text>
-                <Image style={{ width: 330, height: 300, marginTop: -120 }} source={{ uri: "https://i.imgur.com/AL8LXui.png" }}></Image>
-                <Button style={{ backgroundColor: "#5A9C54", width: 300 }} mode="contained" onPress={() => navigation.goBack()}>ME CADASTRAR</Button>
+                <Text style={{ marginTop: -200, marginBottom: -120 }}>Tipo de veículo:</Text>
+                <ModalSelector
+                    style={{ width: 350, marginTop: -400 }}
+                    data={data}
+                    initValue="Tipo de Veículo"
+                />
+
             </View>
+
 
         </View>
     );
@@ -34,8 +48,8 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         justifyContent: 'space-evenly',
-        marginTop: -110,
-        padding: 14,
+        marginTop: -300,
+        // padding: 14,
         alignItems: 'center',
         flexWrap: 'wrap',
         width: '87.20%'

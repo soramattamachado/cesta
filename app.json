@@ -14,7 +14,12 @@
       "**/*"
     ],
     "android": {
-      "package": "com.diegocrodrigues.cesta"
+      "package": "com.diegocrodrigues.cesta",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDddE2LIUWFERj_ah1vUqccGZRUdelYIM0"
+        }
+      }
     },
     "description": "",
     "githubUrl": "https://github.com/soramattamachado/cesta"
