@@ -15,12 +15,8 @@ import PurchasesMock from '../utils/purchacesMock';
 import PurchaceHistoryCard from '../components/purchaceHistoryCard';
 import Separator from '../components/separator';
 import SubmitButton from '../components/submitButton';
-import RatingStars from '../components/ratingStars';
 
-const Rating = ({ navigation, route }) => {
-  const purchace = route.params;
-  const [starCount, setStarCount] = useState(4);
-
+const NewItem = () => {
   const handleSubmit = () => {
     console.log('submited!');
   };
@@ -32,13 +28,9 @@ const Rating = ({ navigation, route }) => {
       style={styles.container}
     >
       <View style={styles.content}>
-        <Text style={styles.title}>Avaliar produto</Text>
-        <PurchaceHistoryCard purchace={purchace}/>
-        <Separator/>
-        <View style={styles.rating}>
-          <Text style={styles.ratingTitle}>Qual a sua avaliação?</Text>
-          <Text style={styles.ratingText}>Escolha de 1 a 5 estrelas{purchace.subtotal}</Text>
-          <RatingStars customStyle={styles.start} count={starCount} setter={setStarCount}/>
+        <Text style={styles.title}>Novo item</Text>
+        <View style={styles.addPicture}>
+          <Text style={styles.addPictureText}>Adicionar foto</Text>
         </View>
         <Separator/>
         <View style={styles.comment}>
@@ -88,10 +80,19 @@ const styles = StyleSheet.create({
     marginTop: 120,
     marginBottom: 40
   },
-  start: {
-    width: '70%',
-    marginBottom: 10
+  addPicture: {
+
   },
+  addPictureText: {
+    fontFamily: 'NunitoRegular',
+    fontSize: 16,
+    color: '#FFFFFF'
+  },
+
+
+
+
+
   rating: {
     justifyContent: 'space-between'
   },
@@ -161,4 +162,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Rating;
+export default NewItem;

@@ -23,11 +23,11 @@ const Profile = () => {
         </View>
       </View>
       <View style={styles.content}>
-        <MenuItemButton text='Pontos de fidelidade' customStyles={styles.linkdBtn}/>
+        <MenuItemButton text='Pontos de fidelidade' link={() => navigation.navigate('FidelityPoints')} customStyles={styles.linkdBtn}/>
         <Separator customStyles={styles.separator}/>
-        <MenuItemButton text='Sou vendedor(a)' customStyles={styles.linkdBtn}/>
+        <MenuItemButton text='Sou vendedor(a)' link={() => navigation.navigate('Seller')} customStyles={styles.linkdBtn}/>
         <Separator customStyles={styles.separator}/>
-        <MenuItemButton text='Sou entregador(a)' customStyles={styles.linkdBtn}/>
+        <MenuItemButton text='Sou entregador(a)' link={() => navigation.navigate('FidelityPoints')} customStyles={styles.linkdBtn}/>
       </View>
     </View>
   );

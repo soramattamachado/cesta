@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import SubmitButton from '../components/submitButton';
 import Login from '../screens/login';
 import Register from '../screens/register';
 import RecoverPassword from '../screens/recoverPassword';
@@ -12,6 +12,9 @@ import PurchaceDetail from '../screens/purchaceDetail';
 import Rating from '../screens/rating';
 import UserData from '../screens/userData';
 import EditUserData from '../screens/editUserData';
+import FidelityPoints from '../screens/fidelityPoints';
+import Seller from '../screens/seller';
+import NewItem from '../screens/newItem';
 
 const Stack = createStackNavigator();
 
@@ -146,6 +149,52 @@ const AppNavigation = () => {
       <Stack.Screen
         name='EditUserData'
         component={EditUserData}
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          }
+        }}
+      />
+      <Stack.Screen
+        name='FidelityPoints'
+        component={FidelityPoints}
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          }
+        }}
+      />
+      <Stack.Screen
+        name='Seller'
+        component={Seller}
+        options={({ navigation }) => ({
+          headerShown: true,
+          headerTransparent: true,
+          headerTintColor: '#5A9C54',
+          title: 'VOLTAR',
+          headerStyle: {
+            height: 160
+          },
+          headerRight: () => (
+            <SubmitButton
+              text={'NOVO ITEM'}
+              submitHandler={() => navigation.navigate('NewItem')}
+              customStyles={{marginRight: 40, paddingHorizontal: 16}}
+            />
+          ),
+        })}
+      />
+      <Stack.Screen
+        name='NewItem'
+        component={NewItem}
         options={{
           headerShown: true,
           headerTransparent: true,
