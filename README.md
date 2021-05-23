@@ -33,3 +33,10 @@ Cliente, que representa os possíveis interessados em comprar os produtos comerc
 e o Entregador, que conecta as pessoas locais disponíveis para entregar os produtos que forem vendidos ou aos correios e transportadoras mais próximas.
 
 Possibilitando uma melhor experiência no app, forma-se então uma rede e gera-se mais oportunidades de renda à comunidade local.
+
+## Baixar Aplicativo
+
+<p align="center">
+<img width="200" height="auto" src="https://i.imgur.com/ihwYJLO.png"/> 
+ </p>
+
