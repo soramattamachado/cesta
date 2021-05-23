@@ -9,6 +9,7 @@ import Home from '../screens/home';
 import CategoryDetails from '../screens/categoryDetails';
 import BottomNavigation from './bottomNavigation';
 import PurchaceDetail from '../screens/purchaceDetail';
+import ItemDetails from '../screens/itemDetails';
 import Rating from '../screens/rating';
 
 const Stack = createStackNavigator();
@@ -98,10 +99,11 @@ const AppNavigation = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name='BottomStack'
-        component={BottomNavigation}
+        name='ItemDetailsStack'
+        component={ItemDetails}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name='PurchaceDetail'
         component={PurchaceDetail}
@@ -115,7 +117,7 @@ const AppNavigation = () => {
           }
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name='Rating'
         component={Rating}
         options={{
@@ -127,6 +129,11 @@ const AppNavigation = () => {
             height: 160
           }
         }}
+      />
+      <Stack.Screen
+        name='BottomStack'
+        component={BottomNavigation}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

@@ -1,13 +1,13 @@
 import React from "react";
 
-import { StyleSheet, View, ScrollView, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, TouchableOpacity } from 'react-native';
 
 import { Button } from 'react-native-paper';
 
 import CategoryProductsDetails from '../components/CategoryProductsDetails';
 import ProductsMock from '../utils/productsMock'
 
-import { useNavigation } from '@react-navigation/native';
+
 
 const CategoryDetails = ({ route, navigation }) => {
     // const navigation = useNavigation();

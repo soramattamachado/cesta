@@ -1,25 +1,35 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
 import { Card, } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 
 import RatingStars from './ratingStars';
 
 const CategoryProductsDetails = (props) => {
     const { Products } = props;
     const [starCount, setStarCount] = useState(4);
+    const navigation = useNavigation();
     return (
         <View style={{ flexDirection: "row", flexWrap: "wrap" }} >
             {Products.map((product) =>
-                <Card key={product.id} style={styles.card} >
-                    <Card.Content style={styles.CardContent}>
-                        <Image style={{ width: 140, height: 100 }} source={{ uri: `${product.ProductImage}` }}></Image>
-                        <View style={styles.content}>
-                            <Text style={styles.CardTitleText}>{product.ProductTitle}</Text>
-                            <Text style={styles.CardValueText}> {`R$ ${product.ProductValue}`}</Text>
-                        </View>
-                    </Card.Content>
-                    <RatingStars customStyle={styles.start} starSize={16} count={starCount} setter={setStarCount} />
-                </Card >
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate('ItemDetailsStack', {
+                        ProductImage: product.ProductImage,
+                        ProductTitle: product.ProductTitle,
+                        ProductValue: product.ProductValue
+                    })
+                }}>
+                    <Card key={product.id} style={styles.card} >
+                        <Card.Content style={styles.CardContent}>
+                            <Image style={{ width: 140, height: 100 }} source={{ uri: `${product.ProductImage}` }}></Image>
+                            <View style={styles.content}>
+                                <Text style={styles.CardTitleText}>{product.ProductTitle}</Text>
+                                <Text style={styles.CardValueText}> {`R$ ${product.ProductValue}`}</Text>
+                            </View>
+                        </Card.Content>
+                        <RatingStars customStyle={styles.start} starSize={16} count={starCount} setter={setStarCount} />
+                    </Card >
+                </TouchableOpacity>
             )}
         </View>
 
