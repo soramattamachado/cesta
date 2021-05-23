@@ -7,7 +7,7 @@ import * as Location from 'expo-location';
 
 import { Button } from 'react-native-paper';
 
-const ActualLocation = () => {
+const ActualLocation = ({ routes, navigation }) => {
 
     const [latitude, setLatitude] = useState(null)
     const [longitude, setLongitude] = useState(null);
@@ -38,12 +38,11 @@ const ActualLocation = () => {
                 {loading ? (<ActivityIndicator size="large" color="#5A9C54" />) : (
                     <>
                         <View style={styles.topContent}>
-                            <Button color="#5A9C54" icon="arrow-left" mode="text" onPress={() => console.log("pressed")}>Voltar</Button>
+                            <Button color="#5A9C54" icon="arrow-left" mode="text" onPress={() => navigation.goBack()}>Voltar</Button>
                         </View>
                         <View>
                             <View style={styles.mapContainer}>
                                 <MapView style={styles.map}
-
                                     initialRegion={{
                                         latitude: latitude,
                                         longitude: longitude,
