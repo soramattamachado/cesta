@@ -38,7 +38,7 @@ const ItemDetails = ({ route, navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 50,
+        marginTop: 30,
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%'

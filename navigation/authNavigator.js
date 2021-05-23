@@ -13,9 +13,7 @@ import ItemDetails from '../screens/itemDetails';
 import Rating from '../screens/rating';
 import UserData from '../screens/userData';
 import EditUserData from '../screens/editUserData';
-import FidelityPoints from '../screens/fidelityPoints';
-import Seller from '../screens/seller';
-import NewItem from '../screens/newItem';
+import ActualLocation from '../screens/actualLocation';
 
 const Stack = createStackNavigator();
 
@@ -28,40 +26,7 @@ const screenOptionStyle = {
   headerBackTitle: 'Back'
 };
 
-const AuthNavigator = () => {
-  return (
-    <Stack.Navigator screenOptions={screenOptionStyle} initialRouteName='Login'>
-      <Stack.Screen
-        name='Login'
-        component={Login}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name='Register'
-        component={Register}
-        options={{
-          headerShown: true,
-          headerTransparent: true,
-          title: ''
-        }}
-      />
-      <Stack.Screen
-        name='RecoverPassword'
-        component={RecoverPassword}
-        options={{
-          headerShown: true,
-          headerTransparent: true,
-          headerTintColor: '#5A9C54',
-          title: 'VOLTAR',
-          headerStyle: {
-            height: 160
-          }
-        }}
-      />
 
-    </Stack.Navigator>
-  );
-};
 
 const AppNavigation = () => {
   return (
@@ -96,6 +61,11 @@ const AppNavigation = () => {
       <Stack.Screen
         name='DashboardStack'
         component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='ActualLocationStack'
+        component={ActualLocation}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -168,7 +138,7 @@ const AppNavigation = () => {
             <SubmitButton
               text={'NOVO ITEM'}
               submitHandler={() => navigation.navigate('NewItem')}
-              customStyles={{marginRight: 40, paddingHorizontal: 16}}
+              customStyles={{ marginRight: 40, paddingHorizontal: 16 }}
             />
           ),
         })}
@@ -200,4 +170,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export { AuthNavigator, AppNavigation };
+export { AppNavigation };

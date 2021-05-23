@@ -14,7 +14,7 @@ const CategoryProducts = (props) => {
     return (
         <>
             {Products.map((product) =>
-                <TouchableOpacity onPress={() => {
+                <TouchableOpacity key={product.id} onPress={() => {
                     navigation.navigate('ItemDetailsStack', {
                         ProductImage: product.ProductImage,
                         ProductTitle: product.ProductTitle,
