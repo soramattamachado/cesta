@@ -1,16 +1,16 @@
 import React from "react";
-import { Image, StyleSheet, View, Text } from 'react-native';
-import Images from '../utils/images';
+import { StyleSheet, View, Text } from 'react-native';
+import SellerItem from '../components/sellerItem';
 
 const Seller = () => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.title}>Sou vendedor(a)</Text>
-        <Text style={styles.pointsNumber}>Voce tem 2 pontos acumulados</Text>
-        <Text style={styles.message}>Faça mais 3 compras no aplicativo para ganhar seu primeiro cupom</Text>
-        <View style={styles.imageContainer}>
-          <Image style={styles.image} source={Images.fidelity_screen_img} />
+        <Text style={styles.myItensText}>Meus itens</Text>
+        <View style={styles.itensContainer}>
+          <SellerItem item={{'title': 'Tour pela Chapada Diamantina', 'price': 24.00, 'rating': 4}}/>
+          <SellerItem item={{'title': 'Velande da Caatinga', 'price': 18.00, 'rating': 5}}/>
         </View>
       </View>
     </View>
@@ -35,29 +35,20 @@ const styles = StyleSheet.create({
     fontFamily: 'NunitoRegular',
     fontSize: 24,
     color: '#264224',
-    marginBottom: 60
+    marginBottom: 20
   },
-  pointsNumber: {
-    fontFamily: 'NunitoSemiBold',
+  myItensText: {
+    fontFamily: 'NunitoBold',
     fontSize: 20,
-    color: 'rgba(0, 0, 0, 0.87)',
-    marginBottom: 10
+    color: '#264224',
+    marginBottom: 120
   },
-  message: {
-    fontFamily: 'NunitoRegular',
-    fontSize: 16,
-    color: 'rgba(0, 0, 0, 0.54)'
-  },
-  imageContainer: {
+  itensContainer: {
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems:'center'
-  },
-  image: {
-    width: '100%',
-    height: undefined,
-    aspectRatio: 1,
-    resizeMode: 'contain'
+    alignItems: 'flex-start',
+    width: '100%'
   }
 });
 

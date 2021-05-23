@@ -5,7 +5,9 @@ const RatingStars = (props) => {
   const {
     count = 4,
     setter = () => {},
-    customStyle = {}
+    customStyle = {},
+    size = 40,
+    disabled = false
   } = props;
 
   const handleSubmit = () => {
@@ -15,9 +17,10 @@ const RatingStars = (props) => {
   return (
     <StarRating
       containerStyle={customStyle}
-      disabled={false}
+      disabled={disabled}
       maxStars={5}
       rating={count}
+      starSize={size}
       emptyStarColor='rgba(0, 0, 0, 0.26)'
       emptyStar='star'
       fullStarColor='#FFC700'
