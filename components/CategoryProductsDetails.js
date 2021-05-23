@@ -12,7 +12,7 @@ const CategoryProductsDetails = (props) => {
     return (
         <View style={{ flexDirection: "row", flexWrap: "wrap" }} >
             {Products.map((product) =>
-                <TouchableOpacity onPress={() => {
+                <TouchableOpacity key={product.id} onPress={() => {
                     navigation.navigate('ItemDetailsStack', {
                         ProductImage: product.ProductImage,
                         ProductTitle: product.ProductTitle,

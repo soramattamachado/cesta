@@ -18,12 +18,10 @@ const Home = () => {
     return (
         <View style={styles.container}>
             <View style={styles.topContent}>
-                <Button color="#5A9C54" icon="map-marker-radius" mode="text" onPress={() => console.log("pressed")}>Localização Atual</Button>
+                <Button color="#5A9C54" icon="map-marker-radius" mode="text" onPress={() => navigation.navigate("ActualLocationStack")}>Localização Atual</Button>
             </View>
             <ScrollView >
                 <View>
-
-
                     {ProductsMock.map((Category) => (
                         <>
                             <View style={styles.TitleContainer}>
@@ -50,7 +48,7 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 50,
+        marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%'
