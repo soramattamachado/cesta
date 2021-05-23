@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 const CustomInput = (props) => {
   const {
     placeholder,
-    value,
+    value = '',
     isSecure = true,
     keyboardType = 'default',
     setter,
