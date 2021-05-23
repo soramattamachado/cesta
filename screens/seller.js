@@ -3,14 +3,22 @@ import { StyleSheet, View, Text } from 'react-native';
 import SellerItem from '../components/sellerItem';
 
 const Seller = () => {
+  let itemIndex = 1;
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.title}>Sou vendedor(a)</Text>
         <Text style={styles.myItensText}>Meus itens</Text>
         <View style={styles.itensContainer}>
-          <SellerItem item={{'title': 'Tour pela Chapada Diamantina', 'price': 24.00, 'rating': 4}}/>
-          <SellerItem item={{'title': 'Velande da Caatinga', 'price': 18.00, 'rating': 5}}/>
+          <SellerItem
+            customStyle={((itemIndex++ % 2) === 0) ? styles.rightItem : styles.leftItem}
+            item={{'title': 'Tour pela Chapada Diamantina', 'price': 24.00, 'rating': 4}}
+          />
+          <SellerItem
+            customStyle={((itemIndex++ % 2) === 0) ? styles.rightItem : styles.leftItem}
+            item={{'title': 'Velande da Caatinga', 'price': 18.00, 'rating': 5}}
+          />
         </View>
       </View>
     </View>
@@ -30,6 +38,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     width: '87.20%'
+  },
+  leftItem: {
+    marginRight: 10,
+  },
+  rightItem: {
+    marginLeft: 10,
   },
   title: {
     fontFamily: 'NunitoRegular',

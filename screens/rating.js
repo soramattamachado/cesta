@@ -46,14 +46,14 @@ const Rating = ({ navigation, route }) => {
           <Text style={styles.commentOptional}>(opcional)</Text>
           <Text style={styles.commentCharsUsed}>(0/300)</Text>
         </View>
-          <View style={styles.inputWrapper} >
-            <Text style={styles.inputTitle}>insira aqui sua avaliação</Text>
-            <TextInput
-              style={styles.input}
-              maxLength={300}
-              multiline={true}
-            />
-          </View>
+        <View style={styles.inputWrapper} >
+          <Text style={styles.inputTitle}>insira aqui sua avaliação</Text>
+          <TextInput
+            style={styles.input}
+            maxLength={300}
+            multiline={true}
+          />
+        </View>
         <Separator/>
         <View style={styles.submitWrapper}>
           <SubmitButton customStyles={styles.submit} isMain={true} text='AVALIAR COMPRA' submitHandler={handleSubmit} />
