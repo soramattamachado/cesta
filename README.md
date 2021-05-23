@@ -34,7 +34,13 @@ e o Entregador, que conecta as pessoas locais disponíveis para entregar os prod
 
 Possibilitando uma melhor experiência no app, forma-se então uma rede e gera-se mais oportunidades de renda à comunidade local.
 
-## Baixar Aplicativo
+## Executar Aplicativo no Expo (iOS / Android)
+
+<p align="center">
+<img width="200" height="auto" src="https://i.imgur.com/NgERfjz.png"/> 
+ </p>
+
+## Baixar Aplicativo (APK - Android)
 
 <p align="center">
 <img width="200" height="auto" src="https://i.imgur.com/ihwYJLO.png"/> 
