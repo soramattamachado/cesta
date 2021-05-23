@@ -9,6 +9,7 @@ import Home from '../screens/home';
 import CategoryDetails from '../screens/categoryDetails';
 import BottomNavigation from './bottomNavigation';
 import PurchaceDetail from '../screens/purchaceDetail';
+import ItemDetails from '../screens/itemDetails';
 import Rating from '../screens/rating';
 import UserData from '../screens/userData';
 import EditUserData from '../screens/editUserData';
@@ -100,10 +101,11 @@ const AppNavigation = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name='BottomStack'
-        component={BottomNavigation}
+        name='ItemDetailsStack'
+        component={ItemDetails}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name='PurchaceDetail'
         component={PurchaceDetail}
@@ -117,7 +119,7 @@ const AppNavigation = () => {
           }
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name='Rating'
         component={Rating}
         options={{
@@ -131,30 +133,9 @@ const AppNavigation = () => {
         }}
       />
       <Stack.Screen
-        name='UserData'
-        component={UserData}
-        options={{
-          headerShown: true,
-          headerTransparent: true,
-          headerTintColor: '#5A9C54',
-          title: 'VOLTAR',
-          headerStyle: {
-            height: 160
-          }
-        }}
-      />
-      <Stack.Screen
-        name='EditUserData'
-        component={EditUserData}
-        options={{
-          headerShown: true,
-          headerTransparent: true,
-          headerTintColor: '#5A9C54',
-          title: 'VOLTAR',
-          headerStyle: {
-            height: 160
-          }
-        }}
+        name='BottomStack'
+        component={BottomNavigation}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
